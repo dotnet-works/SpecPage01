@@ -23,7 +23,9 @@ namespace SpecPage01.WebHooks
             {
                 case BrowserType.Chrome:
                     Console.WriteLine("Starting Chrome Browser");
-                    this.driver = new ChromeDriver();
+                    ChromeOptions cOptions = new ChromeOptions();
+                    cOptions.AddArgument("--test-type");
+                    this.driver = new ChromeDriver(cOptions);
                     break;
 
                 case BrowserType.Firefox:
