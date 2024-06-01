@@ -22,3 +22,7 @@ Scenario:1.Create New User
    When enter "about store" data
    When click submit button
    Then user should navigate to new page
+
+@foxy
+Scenario:2.Demo or condition
+   Given open site url "https://admin.foxycart.com/signup/"

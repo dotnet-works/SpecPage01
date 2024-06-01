@@ -16,7 +16,8 @@ namespace SpecPage01.StepDefinitions
             this._driver = driver;
         }
 
-        [Given(@"open site|app url ""(.*)""$")]
+        [Given(@"open site url ""(.*)""$")]
+        [Given(@"open app url ""(.*)""$")]
         public void openSite(string siteURL)
         {
             this._driver.Url = siteURL;
