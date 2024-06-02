@@ -179,14 +179,16 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("2.Demo or condition")]
+        [NUnit.Framework.DescriptionAttribute("2.Demo or condition1")]
         [NUnit.Framework.CategoryAttribute("foxy")]
-        public void _2_DemoOrCondition()
+        [NUnit.Framework.CategoryAttribute("wip1")]
+        public void _2_DemoOrCondition1()
         {
             string[] tagsOfScenario = new string[] {
-                    "foxy"};
+                    "foxy",
+                    "wip1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2.Demo or condition", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2.Demo or condition1", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 27
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -199,6 +201,54 @@ this.ScenarioInitialize(scenarioInfo);
                 this.ScenarioStart();
 #line 28
    testRunner.Given("open site url \"https://admin.foxycart.com/signup/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("3.Demo or condition2")]
+        [NUnit.Framework.CategoryAttribute("foxy")]
+        [NUnit.Framework.CategoryAttribute("wip2")]
+        public void _3_DemoOrCondition2()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "foxy",
+                    "wip2"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3.Demo or condition2", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 31
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 32
+   testRunner.Given("open site url \"https://admin.foxycart.com/signup/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "About-You"});
+                table1.AddRow(new string[] {
+                            "firstName"});
+                table1.AddRow(new string[] {
+                            "lastName"});
+                table1.AddRow(new string[] {
+                            "email"});
+                table1.AddRow(new string[] {
+                            "password"});
+                table1.AddRow(new string[] {
+                            "comment1"});
+                table1.AddRow(new string[] {
+                            "comment2"});
+#line 33
+   testRunner.When("enter new user \"about you\" data", ((string)(null)), table1, "When ");
+#line hidden
+#line 41
+    testRunner.Then("email shoild be avialiable with new user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

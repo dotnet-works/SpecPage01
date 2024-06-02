@@ -16,3 +16,28 @@ $ livingdoc test-assembly SpecPage01.dll -t TestExecution.json --output ../../..
 #### Generate Report For Unused Steps In Step-Definations
 Admin@DESKTOP-SRRVDGO E:\DotnetWorks\SpecPage01\bin\Debug\net8.0
 $ livingdoc test-assembly SpecPage01.dll --binding-assemblies "SpecPage01.dll"
+
+### Using dotnet Command Line Tool To Run Spec Tests
+
+
+### Pass Value to appSettings.json from cmd
+##### error command: dotnet run --AppSettings:Environment=Staging --AppSettings:RetryCount=10 --AppSettings:Browser=Firefox etc.
+
+1. Run using single tag
+   dotnet test --filter Category=wip
+   dotnet test --filter "Category=wip1 | Category=wip2"    => run either 'wip1' OR 'wip2'
+   dotnet test --filter "Category=wip1 & Category=wip2"    => run either 'wip1' AND 'wip2'
+
+
+## Framework Support
+1. Implement specflow page object model
+2. Implement specflow+livingdoc report
+3. Add appSettings.json to pass and access values
+4. fully dotnet compitiable to run tests from commandline
+
+
+
+
+
+
+

@@ -23,6 +23,19 @@ Scenario:1.Create New User
    When click submit button
    Then user should navigate to new page
 
-@foxy
-Scenario:2.Demo or condition
+@foxy @wip1
+Scenario:2.Demo or condition1
    Given open site url "https://admin.foxycart.com/signup/"
+
+@foxy @wip2
+Scenario:3.Demo or condition2
+   Given open site url "https://admin.foxycart.com/signup/"
+   When enter new user "about you" data
+                        | About-You |
+                        | firstName |
+                        | lastName  |
+                        | email     |
+                        | password  |
+                        | comment1  |
+                        | comment2  |
+    Then email shoild be avialiable with new user

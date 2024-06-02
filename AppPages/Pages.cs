@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using SpecPage01.AppPages.FoxyApp;
 
 
 
@@ -10,11 +11,13 @@ namespace SpecPage01.AppPages
     {
         private IWebDriver _driver;
         public SearchPage googlePage;
+        public SignUpPage foxySignUp;
 
         public Pages(IWebDriver driver)
         {
             this._driver = driver;
             googlePage = new SearchPage(driver);
+            foxySignUp = new SignUpPage(driver);
         }
 
         public void goToApp()

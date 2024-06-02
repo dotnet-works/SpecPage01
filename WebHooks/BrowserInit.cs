@@ -45,7 +45,34 @@ namespace SpecPage01.WebHooks
             //if (browserType == BrowserType.Chrome) {   }
             return driver;
         }
+    
 
+    public IWebDriver StartBrowser(string browserName)
+    {
 
+        switch (browserName.ToLower())
+        {
+            case "chrome":
+                Console.WriteLine("Starting Chrome Browser");
+                ChromeOptions cOptions = new ChromeOptions();
+                cOptions.AddArgument("--test-type");
+                this.driver = new ChromeDriver(cOptions);
+                break;
+
+            case "firefox":
+                Console.WriteLine("Starting Firefox Browser");
+                this.driver = new FirefoxDriver();
+                break;
+
+            default:
+                Console.WriteLine("Starting Chrome Browser by default");
+                this.driver = new ChromeDriver();
+                break;
+
+        }
+        this.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+        this.driver.Manage().Window.Maximize();
+        return this.driver;
     }
+}
 }

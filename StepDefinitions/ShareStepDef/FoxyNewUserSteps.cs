@@ -1,4 +1,6 @@
-﻿using TechTalk.SpecFlow;
+﻿using OpenQA.Selenium;
+using SpecPage01.AppPages;
+using TechTalk.SpecFlow;
 
 namespace SpecPage01.StepDefinitions.ShareStepDef
 {
@@ -7,16 +9,34 @@ namespace SpecPage01.StepDefinitions.ShareStepDef
     {
 
         private readonly ScenarioContext _scenarioContext;
-
-        public FoxyNewUserSteps(ScenarioContext scenarioContext)
+        private IWebDriver _driver;
+        public Pages appPage;
+        public FoxyNewUserSteps(IWebDriver _driver,ScenarioContext scenarioContext)
         {
             this._scenarioContext = scenarioContext;
+            this._driver = _driver;
+            this.appPage = new Pages(this._driver);
         }
         [When(@"enter ""(.*)"" data")]
         public void WhenEnterData(string section_name)
         {
             
         }
+
+        [When(@"enter new user ""(.*)"" data")]
+        public void WhenEnterNewUserData(string p0, Table table)
+        {
+            this.appPage.foxySignUp.EnterAboutYouData("firstname");
+        }
+
+        [Then(@"email shoild be avialiable with new user")]
+        public void ThenEmailShoildBeAvialiableWithNewUser()
+        {
+            Thread.Sleep(3000);
+        }
+
+
+
 
         [When(@"click submit button")]
         public void WhenClickSubmitButton()

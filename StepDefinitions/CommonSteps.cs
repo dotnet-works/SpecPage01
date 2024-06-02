@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using SpecPage01.Utils;
 using TechTalk.SpecFlow;
 
 namespace SpecPage01.StepDefinitions
@@ -23,6 +24,11 @@ namespace SpecPage01.StepDefinitions
             this._driver.Url = siteURL;
             TestContext.WriteLine($"site name: foxy");
             this.scenarioContext.Add("Val1", "Halua");
+            ProjectUtils.GetSettingsData();
+
+            var settingData = ProjectUtils.GetSettingsDataValue("AppSettings");
+            Console.WriteLine(settingData["Browser"]);
+
         }
 
         [When(@"enter all data")]

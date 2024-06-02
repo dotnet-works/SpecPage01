@@ -14,6 +14,7 @@ namespace SpecPage01.WebHooks
         private readonly IObjectContainer _container;
         private IWebDriver _driver;
         public BrowserInit browserInit;
+        private string? _browserName=null;
 
         public WebHook(IObjectContainer _container) {  this._container = _container;   }
 
@@ -28,13 +29,17 @@ namespace SpecPage01.WebHooks
         [BeforeScenario]
         public void BeforeScenarioWithTag()
         {
+            this._browserName = Environment.GetEnvironmentVariable("browserName") ;
+            Console.WriteLine($"browserName: {this._browserName}");
+
             browserInit = new BrowserInit(this._driver);
             this._container.RegisterInstanceAs<IWebDriver>(browserInit.StartBrowser(BrowserType.Chrome));
-            //this._driver = new ChromeDriver();
-            //this._driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
-            //this._driver.Manage().Window.Maximize();
+
+            //this._driver = browserInit.StartBrowser(this._browserName);
             //this._container.RegisterInstanceAs<IWebDriver>(this._driver);
-            
+
+
+
         }
 
         [BeforeScenario(Order = 1)]
